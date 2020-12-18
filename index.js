@@ -1,5 +1,10 @@
 setUpAddForm(); //default
 populateTableRow();
+
+function formChooser(inputName) {
+  return document.forms["entryform"][inputName];
+}
+
 function onEdit() {
   //disable the btn
   formChooser("submit").setAttribute("disabled", "1");
@@ -40,9 +45,6 @@ function onAdd() {
   });
 }
 
-function formChooser(inputName) {
-  return document.forms["entryform"][inputName];
-}
 function emptyInputs() {
   formChooser("quantity").value = null;
   formChooser("price").value = null;
@@ -83,9 +85,19 @@ function deleteEntry(index) {
   }
 }
 
-function createRow(no, name, quantity, price, totalValue) {
+function createRow(no, datetime, name, quantity, price, totalValue) {
+  var d = new Date(datetime * 1000);
+  datetime =
+    d.toDateString() +
+    " " +
+    d.getHours() +
+    ":" +
+    d.getMinutes() +
+    ":" +
+    d.getSeconds();
   return `<tr>
               <td>${no}</td>
+              <td>${datetime}</td>
               <td>${name}</td>
               <td>${quantity}</td>
               <td>${price}</td>
@@ -105,6 +117,7 @@ function populateTableRow() {
     var template = data.map(function (element, index) {
       return createRow(
         index + 1,
+        element.created_at,
         element.productName,
         element.quantity,
         element.price,
