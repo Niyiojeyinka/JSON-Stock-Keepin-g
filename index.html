@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/efe5a84baf.js"></script>
+    <title>No RDBS Stock Entry</title>
+  </head>
+  <body>
+    <header class="p-2 bg-primary text-center text-white">
+      <span>Stock Recording</span>
+    </header>
+    <section class="container p-5">
+      <form name="entryform" class="m-3">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Product Name</span>
+          </div>
+          <input
+            name="productname"
+            type="text"
+            class="form-control"
+            placeholder="Product Name"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Product Price</span>
+          </div>
+          <input
+            name="price"
+            type="numeric"
+            class="form-control"
+            placeholder="Product Price"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text">Quantity</span>
+          </div>
+          <input
+            name="quantity"
+            type="number"
+            class="form-control"
+            placeholder="Quantity"
+          />
+        </div>
+        <button name="submit" type="button" class="btn btn-primary">
+          Add Entry
+        </button>
+      </form>
+    </section>
+    <section class="container text-center">
+      <h1 class="h1">Stocks</h1>
+
+      <div>
+        <table class="table small">
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Product Name</th>
+              <th>Units</th>
+              <th>Unit Price</th>
+              <th>Total Value</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+    <footer class="container-fluid p-3 bg-primary text-center text-white">
+      <span>&copy; 2020</span>
+    </footer>
+    <script src="controller.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
